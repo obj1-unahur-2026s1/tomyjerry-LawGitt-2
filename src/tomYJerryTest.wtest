@@ -1,0 +1,64 @@
+import tom.*
+import ratones.*
+test "velocidad inicial" {
+
+    assert.equals(10, tom.velocidadMaxima())
+}
+
+test "come a jerry" {
+
+    tom.comer(jerry)
+
+    assert.equals(15.2, tom.velocidadMaxima())
+}
+
+test "corre 24 metros" {
+
+    tom.comer(jerry)
+    tom.correr(24)
+
+    assert.equals(14, tom.velocidadMaxima())
+}
+
+test "come a nibbles" {
+
+    tom.comer(jerry)
+    tom.correr(24)
+    tom.comer(nibbles)
+
+    assert.equals(18.7, tom.velocidadMaxima())
+}
+
+test "jerry cumple años y lo come de nuevo" {
+
+    tom.comer(jerry)
+    tom.correr(24)
+    tom.comer(nibbles)
+
+    jerry.cumplirAños()
+
+    tom.comer(jerry)
+
+    assert.equals(25.9, tom.velocidadMaxima())
+}
+
+test "corre 38 metros" {
+
+    tom.comer(jerry)
+    tom.correr(24)
+    tom.comer(nibbles)
+
+    jerry.cumplirAnios()
+    tom.comer(jerry)
+
+    tom.correr(38)
+
+    assert.equals(24, tom.velocidadMaxima())
+}
+
+test "cazar hace que corra y coma" {
+
+    tom.cazarA(jerry, 20)
+
+    assert.equals(5 + tom.energia() / 10, tom.velocidadMaxima())
+}
